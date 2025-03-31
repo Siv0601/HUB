@@ -1,0 +1,31 @@
+/* Basic reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    flex-direction: column; /* Stack images vertically */
+    gap: 20px; /* Space between images */
+}
+
+.image-container {
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.image-container img {
+    display: block;
+    width: 200px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.image-container:hover {
+    transform: scale(1.1) translateY(-10px); /* Enlarges and moves the container up */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Optional: Enhances shadow on hover */
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Memory Card Game</title>
+  <style>
+    body {
+      background: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 10px;
+      margin: 20px;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      background: #e74c3c;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flipped {
+      background: #3498db;
+      transform: rotateY(180deg);
+    }
+    #score {
+      color: white;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: white;">Memory Game</h1>
+  <div id="score">Score: 0</div>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const emojis = ['🎮', '👾', '🕹️', '🎲', '🎮', '👾', '🕹️', '🎲'];
+    let flippedCards = [];
+    let score = 0;
+
+    function createGrid() {
+      const shuffledEmojis = [...emojis].sort(() => Math.random() - 0.5);
+      const grid = document.getElementById('grid');
+      
+      shuffledEmojis.forEach(emoji => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `<span style="display: none;">${emoji}</span>`;
+        card.addEventListener('click', () => flipCard(card));
+        grid.appendChild(card);
+      });
+    }
+
+    function flipCard(card) {
+      if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+        card.children[0].style.display = 'block';
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+          checkMatch();
+        }
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      const emoji1 = card1.children[0].textContent;
+      const emoji2 = card2.children[0].textContent;
+
+      if (emoji1 === emoji2) {
+        score += 10;
+        document.getElementById('score').textContent = `Score: ${score}`;
+        flippedCards = [];
+      } else {
+        setTimeout(() => {
+          card1.classList.remove('flipped');
+          card2.classList.remove('flipped');
+          card1.children[0].style.display = 'none';
+          card2.children[0].style.display = 'none';
+          flippedCards = [];
+        }, 1000);
+      }
+    }
+
+    createGrid();
+  </script>
+</body>
+</html>

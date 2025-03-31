@@ -1,0 +1,86 @@
+.avatarChooserWrapper {
+    min-width: 1000px;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .avatarChooserHeader {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    background-image: linear-gradient(45deg, #b721ff, #21d4fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  
+  .closeButton {
+    font-size: larger;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: end;
+  }
+  
+  .closeButton:hover {
+    cursor: pointer;
+    color: red;
+  }
+  
+  .avatarChooserFormItem {
+    background-color: darksalmon;
+  }
+  
+  .darkMode {
+    .avatarChooserFormItem,
+    .MuiInput-input {
+      color: black;
+    }
+  }
+  
+  .avatarChooserFormItem {
+    background-color: darksalmon;
+    .MuiFormControlLabel-label {
+      min-width: 170px;
+    }
+  }
+  
+  @media only screen and (max-device-width: 480px) {
+    .avatarChooserHeader {
+      font-size: larger;
+    }
+  
+    .avatarChooserWrapper {
+      min-width: 100px;
+      max-width: 350px;
+      max-height: 100%;
+      overflow: auto;
+    }
+  
+    .avatarChooserFormItem {
+      max-width: 150px;
+  
+      .MuiFormControlLabel-label {
+        min-width: 20px;
+        width: 60px;
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+  
+      .MuiSelect-select {
+        margin: 0;
+        padding: 0;
+        text-overflow: clip;
+      }
+  
+      .MuiSelect-icon {
+        display: none;
+      }
+  
+      .MuiSelect-selectMenu {
+        max-width: 25px;
+        font-size: 0.6em !important;
+      }
+    }
+  }

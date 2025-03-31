@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(45deg, #1a1a1a, #2d3436);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+
+.ludo-container {
+    width: 450px;
+    max-width: 90vw;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 183, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.ludo-container .ludo {
+    height: 450px;
+    width: 100%;
+    background-image: url('ludo-bg.jpg');
+    background-size: contain;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Keep original piece dimensions */
+.player-piece {
+    width: 3% !important;
+    height: 3% !important;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 10px; /* Original rounded rectangle shape */
+    position: absolute;
+    transform: translate(50%, 50%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modified animations to work with original size */
+.player-piece.highlight {
+    cursor: pointer;
+    animation: color-pulse 1s infinite;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+@keyframes color-pulse {
+    0% { 
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        filter: brightness(1);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        filter: brightness(1.2);
+    }
+    100% { 
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        filter: brightness(1);
+    }
+}
+
+[player-id="P1"].player-piece {
+    background: linear-gradient(145deg, #2eafff, #0088cc);
+}
+
+[player-id="P2"].player-piece {
+    background: linear-gradient(145deg, #00b550, #007a35);
+}
+
+/* Rest of the previous enhancements remain */
+.player-base {
+    width: 40%;
+    height: 40%;
+    border: 15px solid;
+    position: absolute;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.player-bases [player-id="P1"].player-base {
+    border-image: linear-gradient(45deg, #1295e7, #005f8b);
+    border-image-slice: 1;
+}
+
+.player-bases [player-id="P2"].player-base {
+    border-image: linear-gradient(45deg, #049645, #003d1c);
+    border-image-slice: 1;
+}
+
+.btn-dice {
+    background: linear-gradient(45deg, #00b550, #007a35);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 181, 80, 0.4);
+}
+
+/* ... rest of your existing button and other styles ... */
+
+.btn-dice::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 20%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 80%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-150%); }
+    100% { transform: rotate(45deg) translateX(150%); }
+}
+
+.btn-reset {
+    background: linear-gradient(45deg, #ff4757, #cc0000);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.dice-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    min-width: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.active-player {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .ludo-container {
+        padding: 10px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .dice-value {
+        font-size: 24px;
+    }
+}

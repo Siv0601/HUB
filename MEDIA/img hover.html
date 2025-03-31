@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover Effect with Video Background</title>
+    <link rel="stylesheet" href="stylesi.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="cloud.mp4" type="video/mp4">
+           
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+        <div class="image-container">
+            <a href="t1.html">
+            <img src="a.jpg" alt="Image 1">
+            <h1 class="overlay-text">Enter</h1>
+            </a>
+        </div>
+        <div class="image-gallery 1">
+            <div class="image-container">
+                <a href="drawing/index.html">
+                <img src="z.jpg" alt="Image 1">
+                <h1 class="overlay-text">Enter</h1>
+                </a>
+            </div>
+
+    </div>
+
+    
+<style>
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+    body {
+        font-family: 'Arial Rounded MT Bold', sans-serif;
+        text-align: center;
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        color: #2d3436;
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 3em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 20px 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        gap: 10px;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        max-width: 400px;
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.95);
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 3em;
+        font-weight: bold;
+        color: #2d3436;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cell:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        background: #ffffff;
+    }
+
+    .cell.x {
+        color: #ff7675;
+        text-shadow: 2px 2px 4px rgba(255, 118, 117, 0.3);
+    }
+
+    .cell.o {
+        color: #74b9ff;
+        text-shadow: 2px 2px 4px rgba(116, 185, 255, 0.3);
+    }
+
+    #result {
+        font-size: 1.8em;
+        color: #ffeaa7;
+        margin: 20px 0;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: colorPulse 2s infinite;
+    }
+
+    @keyframes colorPulse {
+        0% { color: #ffeaa7; }
+        50% { color: #ff7675; }
+        100% { color: #ffeaa7; }
+    }
+
+    /* Reset Button Style (add a reset button in HTML) */
+    .reset-btn {
+        background: linear-gradient(45deg, #ff7675, #e84393);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+
+    .reset-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Mode Selector (add if you want game modes) */
+    .mode-selector {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .mode-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .mode-btn.active {
+        background: #74b9ff;
+        color: white;
+    }
