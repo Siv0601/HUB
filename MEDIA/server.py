@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS  
 import os
 from PIL import Image
 import base64
 import io
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  
 
 @app.route('/save', methods=['POST'])
 def save_animation():
